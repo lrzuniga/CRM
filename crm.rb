@@ -3,6 +3,10 @@ require_relative 'database'
 
 class CRM
 
+	def initialize(crmname)
+    	puts "This instance of CRM is called:" + crmname
+	end
+
 	def print_main_menu
 		clear_screen
 	  	puts "[1] Add a new contact"
@@ -34,8 +38,8 @@ class CRM
 
 end
 
-a_crm_app=CRM.new
-a_crm_app.main_menu
+newcrm=CRM.new
+newcrm.main_menu
 
 #contact = Contact.new
 #contact1 = Contact.new
