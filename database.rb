@@ -1,53 +1,31 @@
 class Database
 
-  @contacts = []
-  @id = 1000
+  def initialize
+    @contacts = []
+    @id = 1000
+  end
 
-  def self.add_contact(contact)
+  def add_contact(contact)
     contact.id = @id
     @contacts << contact
     @id += 1
   end
 
-  def self.contacts
-    @contacts
+	def all_db_contacts
+		@contacts.map {|contact| contact.info}.join("\n")
+	end
+
+  def delete_contact(contact_to_delete)
+    @contacts.delete_if { |contact| contact.id == contact_to_delete   }
   end
+
+  def modify_existing_contact(contact_to_be_modified)
+    @contacts.select { |contact| contact.id == contact_to_be_modified }
+  end
+
+  def find_by_id(id_to_find)
+    @contacts.select { |contact| @contacts.include?(id_to_find)}
+  end
+
 
 end
-
-  def add_new_contact
-    print "Enter First Name: "
-    @first_name = gets.chomp
-    print "Enter Last Name: "
-    last_name = gets.chomp
-    print "Enter Email Address: "
-    email = gets.chomp
-    print "Enter a Note: "
-    note = gets.chomp
-    contact = Contact.new(@first_name, last_name, email, note)
-    #test - puts contact.first_name
-    #test - puts @first_name
-    #test - puts last_name
-    #test - puts "made it to here"
-  end
-
-  def modify_existing_contact
-  
-  end
-
-  def delete_existing_contact
-    
-  end
-
-  def display_existing_contact
-    
-  end
-
-  def display_existing_attribute
-    
-  end
-
-contact = Contact.new
-Database.add_contact(contact)
-Database.contacts
-
