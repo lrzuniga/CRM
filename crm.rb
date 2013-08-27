@@ -19,7 +19,7 @@ class CRM
 		puts "[2] Modify an existing contact"
 		puts "[3] Delect a contact"
 		puts "[4] Display all the contacts"
-    	puts "*[5] Display an attribute" 
+    	puts "[5] Display an attribute" 
     	puts "[6] Exit"
     	puts
     	puts "Select an option:"
@@ -99,7 +99,7 @@ class CRM
 
       when "5" then
                     puts "input new id"
-                    new_id = gets.chomp
+                    new_id = gets.chomp.to_i
                     @db.modify_id(new_id, contact_to_be_modified) 
                     main_menu
                   else
@@ -117,8 +117,8 @@ class CRM
 
 def display_attribute
     puts "[1] Name" 
-    puts "[2] email" 
-    puts "[3] note"
+    puts "[2] Email" 
+    puts "[3] Note"
     puts "[4] ID" 
     puts "Select attribute to display:"
     attribute_to_be_displayed = gets.chomp
@@ -140,8 +140,8 @@ def display_attribute
                   all_id = @db.display_all_id
                   all_id
                   main_menu              
-    	else main_menu
-
+    	else 
+    		main_menu
     	end
   end
 

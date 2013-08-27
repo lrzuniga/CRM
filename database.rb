@@ -39,6 +39,10 @@ class Database
     @contacts.map { |contact| contact.email = email if contact.id == contact_to_be_modified}  
   end
 
+  def modify_id(id, contact_to_be_modified)
+    @contacts.map { |contact| contact.id = id if contact.id == contact_to_be_modified}  
+  end
+
   def modify_note(note, contact_to_be_modified)
     @contacts.map { |contact| contact.note = note if contact.id == contact_to_be_modified} 
   end
@@ -59,6 +63,4 @@ class Database
     @contacts.map { |contact| puts "[ID] :  #{contact.id}" } 
   end
 
-  def modify_id(new_id, contact_to_be_modified)
-  end
 end
